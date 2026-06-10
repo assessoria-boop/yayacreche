@@ -399,7 +399,7 @@
     .motivo-num {
       width: 36px; height: 36px;
       border-radius: 10px;
-      background: #dc2626;
+      background: var(--teal);
       color: white;
       font-size: 14px;
       font-weight: 800;
@@ -515,8 +515,118 @@
     .wpp-float:hover { transform: scale(1.1); }
     .wpp-float svg { width: 28px; height: 28px; fill: white; }
 
+    /* —— IDEAL PARA —— */
+    .ideal-lista {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+      text-align: left;
+    }
+    .ideal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: white;
+      border-radius: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--borda);
+    }
+    .ideal-check {
+      color: var(--teal);
+      font-size: 20px;
+      font-weight: 900;
+      flex-shrink: 0;
+      line-height: 1.3;
+    }
+    .ideal-item p {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--texto);
+      line-height: 1.5;
+    }
+
+    /* —— HOSPITAL CONNECTION —— */
+    .sec-hospital {
+      background: var(--teal);
+      padding: 72px 48px;
+    }
+    .sec-hospital-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .sec-hospital h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .sec-hospital p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+    }
+    .hospital-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hospital-badge-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: white;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .hospital-badge-item span:first-child {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+
+    /* —— ESTRUTURA —— */
+    .sec-estrutura { padding: 72px 0; background: #fafafa; }
+    .sec-estrutura-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .sec-estrutura .sec-tag { display: block; text-align: center; margin-bottom: 12px; }
+    .sec-estrutura .sec-titulo { text-align: center; margin-bottom: 8px; }
+    .sec-estrutura .sec-sub { text-align: center; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .estrutura-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      gap: 10px;
+    }
+    .est-item { border-radius: 14px; overflow: hidden; }
+    .est-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .est-item:hover img { transform: scale(1.05); }
+    .est-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .est-item:nth-child(7) { grid-column: span 2; }
+    @media (max-width: 900px) {
+      .estrutura-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; gap: 8px; }
+      .est-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .est-item:nth-child(7) { grid-column: span 2; }
+    }
+    @media (max-width: 480px) {
+      .sec-estrutura { padding: 48px 0; }
+      .estrutura-grid { grid-auto-rows: 130px; gap: 6px; }
+    }
     /* —— RESPONSIVO —— */
     @media (max-width: 900px) {
+      .ideal-lista { grid-template-columns: 1fr; }
+      .sec-hospital { padding: 56px 20px; }
+      .sec-hospital-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+
       nav { padding: 14px 20px; }
       nav .nav-badge { display: none; }
 
@@ -607,6 +717,7 @@
       </div>
       <p class="hero-clinica-nome">Yaya Hotel &amp; Creche</p>
       <h1><span>Creche para C&#xe3;es</span><br />em Guarulhos</h1>
+      <p style="font-size:17px;color:#333;font-weight:500;line-height:1.5;max-width:480px;margin:0 auto 28px;">Onde seu c&#xe3;o vive um dia cheio de divers&#xe3;o, socializa&#xe7;&#xe3;o, autorregula&#xe7;&#xe3;o e cuidados.</p>
       <div class="hero-localizacao">
         <div class="loc-texto">&#x1F4CD; Localiza&#xe7;&#xe3;o Privilegiada em <strong>Guarulhos/SP</strong></div>
       </div>
@@ -728,10 +839,69 @@
         <h3>Redu&#xe7;&#xe3;o de Ansiedade</h3>
         <p>Melhora no comportamento e redu&#xe7;&#xe3;o da ansiedade &#x2014; conviv&#xea;ncia mais harm&#xf4;niosa com outros c&#xe3;es e em casa.</p>
       </div>
+      <div class="servico-card">
+        <div class="servico-icone">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Avalia&#xe7;&#xe3;o Comportamental</h3>
+        <p>Todos os c&#xe3;es passam por avalia&#xe7;&#xe3;o comportamental para garantir uma conviv&#xea;ncia segura e divertida para todos.</p>
+      </div>
 
     </div>
   </div>
 
+  <!-- IDEAL PARA -->
+  <div style="background: var(--cinza-claro); padding: 1px 0;">
+    <div class="sec" style="text-align:center;">
+      <span class="sec-tag">A creche &#xe9; ideal para c&#xe3;es que...</span>
+      <h2 class="sec-titulo">Seu c&#xe3;o se encaixa <span>em algum desses perfis?</span></h2>
+      <div class="ideal-lista">
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>Ficam sozinhos em casa durante o dia</p>
+        </div>
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>T&#xea;m muita energia e precisam se movimentar</p>
+        </div>
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>Precisam aprender a socializar com outros c&#xe3;es</p>
+        </div>
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>Demonstram ansiedade, agita&#xe7;&#xe3;o ou estresse</p>
+        </div>
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>Precisam gastar energia de forma saud&#xe1;vel e supervisionada</p>
+        </div>
+        <div class="ideal-item">
+          <span class="ideal-check">&#x2714;</span>
+          <p>Precisam de estimula&#xe7;&#xe3;o mental e f&#xed;sica di&#xe1;ria</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTRUTURA -->
+  <div class="sec-estrutura">
+    <div class="sec-estrutura-inner">
+      <span class="sec-tag">Nossa Estrutura</span>
+      <h2 class="sec-titulo">Um espaço feito <span>para eles se sentirem em casa</span></h2>
+      <p class="sec-sub">Ambientes confortáveis, limpos e seguros — pensados para o bem-estar e a felicidade do seu pet.</p>
+      <div class="estrutura-grid">
+        <div class="est-item"><img src="e1.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e2.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e3.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e4.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e5.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e6.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e7.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+        <div class="est-item"><img src="e8.webp" alt="Estrutura Creche Yayá" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
   <!-- POR QUÊ -->
   <div class="sec-porque">
     <div>
@@ -763,10 +933,46 @@
       </div>
 
       <div class="motivo">
-        <div class="motivo-num">05</div>
+        <div class="motivo-num">04</div>
         <div>
           <h4>Convi&#xea;ncia harm&#xf4;niosa</h4>
           <p>Seu c&#xe3;o aprende a conviver com outros animais e pessoas de forma saud&#xe1;vel e equilibrada.</p>
+        </div>
+      </div>
+      <div class="motivo">
+        <div class="motivo-num">05</div>
+        <div>
+          <h4>Integra&#xe7;&#xe3;o ao Hospital Veterin&#xe1;rio Yay&#xe1;</h4>
+          <p>Seguran&#xe7;a que vai al&#xe9;m da divers&#xe3;o &#x2014; onde a seguran&#xe7;a vem em primeiro lugar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOSPITAL CONNECTION -->
+  <div class="sec-hospital">
+    <div class="sec-hospital-inner">
+      <div>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.75);">Seguran&#xe7;a que vai al&#xe9;m da divers&#xe3;o</span>
+        <h2>A Creche Yay&#xe1; faz parte<br />do <strong>Hospital Veterin&#xe1;rio Yay&#xe1;</strong></h2>
+        <p>Oferecemos suporte profissional e cuidados especializados quando necess&#xe1;rio. Seu pet brinca com seguran&#xe7;a &#x2014; e se precisar de atendimento, est&#xe1; no lugar certo.</p>
+      </div>
+      <div class="hospital-badge">
+        <div class="hospital-badge-item">
+          <span>&#x1F3E5;</span>
+          <span>Estrutura integrada ao hospital veterin&#xe1;rio</span>
+        </div>
+        <div class="hospital-badge-item">
+          <span>&#x1F9BE;</span>
+          <span>Equipe especializada presente no local</span>
+        </div>
+        <div class="hospital-badge-item">
+          <span>&#x2764;&#xfe0f;</span>
+          <span>Atendimento imediato em caso de necessidade</span>
+        </div>
+        <div class="hospital-badge-item">
+          <span>&#x1F6E1;&#xfe0f;</span>
+          <span>Seu pet brinca com seguran&#xe7;a real</span>
         </div>
       </div>
     </div>
@@ -774,6 +980,7 @@
 
   <!-- CTA -->
   <div class="sec-cta">
+    <p style="text-align:center;font-size:15px;font-weight:700;color:var(--texto);margin-bottom:24px;line-height:1.5;">&#x26A0;&#xfe0f; Trabalhamos com n&#xfa;mero controlado de c&#xe3;es para garantir seguran&#xe7;a e qualidade de atendimento.</p>
     <div class="sec-cta-inner">
       <h2>Garanta uma Vaga na Creche para o Seu C&#xe3;o</h2>
       <p class="sec-cta-destaque">&#x1F449; R&#xe1;pido, sem compromisso e totalmente gratuito.</p>
@@ -796,7 +1003,7 @@
             <span class="ico">&#x1F4CD;</span>
             <div>
               <strong>Endere&#xe7;o</strong>
-              Guarulhos/SP
+              Alameda Yay&#xe1; 1007 &#x2013; Jd. Aida, Guarulhos &#x2013; SP, 07060-000
             </div>
           </div>
 
