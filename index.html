@@ -573,25 +573,32 @@
       line-height: 1.7;
     }
     .hospital-badge {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 16px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
     .hospital-badge-item {
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 14px;
+      padding: 20px 18px;
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
       gap: 12px;
-      color: white;
-      font-size: 14px;
-      line-height: 1.5;
     }
-    .hospital-badge-item span:first-child {
-      font-size: 20px;
+    .hb-icon {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+    }
+    .hb-icon svg { width: 19px; height: 19px; }
+    .hospital-badge-item > span {
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
     }
 
 
@@ -959,19 +966,19 @@
       </div>
       <div class="hospital-badge">
         <div class="hospital-badge-item">
-          <span>&#x1F3E5;</span>
+          <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <span>Estrutura integrada ao hospital veterin&#xe1;rio</span>
         </div>
         <div class="hospital-badge-item">
-          <span>&#x1F9BE;</span>
+          <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
           <span>Equipe especializada presente no local</span>
         </div>
         <div class="hospital-badge-item">
-          <span>&#x2764;&#xfe0f;</span>
+          <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <span>Atendimento imediato em caso de necessidade</span>
         </div>
         <div class="hospital-badge-item">
-          <span>&#x1F6E1;&#xfe0f;</span>
+          <div class="hb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <span>Seu pet brinca com seguran&#xe7;a real</span>
         </div>
       </div>
