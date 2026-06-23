@@ -116,13 +116,35 @@
 
     /* —— HERO —— */
     .hero {
+      position: relative;
       min-height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 80px 24px;
-      background: linear-gradient(160deg, #ffffff 0%, var(--teal-suave) 100%);
+      overflow: hidden;
+      background: var(--teal);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-bg-slide.ativo { opacity: 1; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,40,38,0.65) 100%);
     }
     .hero-content {
       position: relative;
@@ -147,7 +169,7 @@
     .hero-clinica-nome {
       font-size: 13px;
       font-weight: 700;
-      color: var(--teal);
+      color: #fff;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       margin-bottom: 14px;
@@ -155,12 +177,13 @@
     .hero h1 {
       font-size: clamp(38px, 10vw, 68px);
       font-weight: 900;
-      color: var(--texto);
+      color: #fff;
       letter-spacing: -2px;
       line-height: 1.05;
       margin-bottom: 28px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.35);
     }
-    .hero h1 span { color: #dc2626; }
+    .hero h1 span { color: #fff; }
     .hero-localizacao { margin-bottom: 32px; }
     .loc-texto {
       background: white;
@@ -202,7 +225,7 @@
     .btn-wpp svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
     .hero-resposta {
       font-size: 13px;
-      color: var(--cinza);
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -718,13 +741,24 @@
 
   <!-- HERO -->
   <div class="hero">
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-bg-slide ativo" style="background-image:url('e1.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e2.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e3.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e4.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e5.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e6.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e7.webp')"></div>
+      <div class="hero-bg-slide" style="background-image:url('e8.webp')"></div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-logo-circulo">
         <img src="logo.jpg" alt="Centro Educativo Yay&#xe1;" width="96" height="96" />
       </div>
       <p class="hero-clinica-nome">Yaya Hotel &amp; Creche</p>
       <h1><span>Creche para C&#xe3;es</span><br />em Guarulhos</h1>
-      <p style="font-size:17px;color:#333;font-weight:500;line-height:1.5;max-width:480px;margin:0 auto 28px;">Onde seu c&#xe3;o vive um dia cheio de divers&#xe3;o, socializa&#xe7;&#xe3;o, autorregula&#xe7;&#xe3;o e cuidados.</p>
+      <p style="font-size:17px;color:rgba(255,255,255,0.92);font-weight:500;line-height:1.5;max-width:480px;margin:0 auto 28px;text-shadow:0 1px 8px rgba(0,0,0,0.3);">Onde seu c&#xe3;o vive um dia cheio de divers&#xe3;o, socializa&#xe7;&#xe3;o, autorregula&#xe7;&#xe3;o e cuidados.</p>
       <div class="hero-localizacao">
         <div class="loc-texto">&#x1F4CD; Localiza&#xe7;&#xe3;o Privilegiada em <strong>Guarulhos/SP</strong></div>
       </div>
@@ -1052,6 +1086,18 @@
   </a>
 
   <script>
+    // Slideshow do fundo do hero
+    (function() {
+      var slides = document.querySelectorAll('#heroBg .hero-bg-slide');
+      if (slides.length < 2) return;
+      var atual = 0;
+      setInterval(function() {
+        slides[atual].classList.remove('ativo');
+        atual = (atual + 1) % slides.length;
+        slides[atual].classList.add('ativo');
+      }, 4000);
+    })();
+
     // Mapa lazy
     function carregarMapa() {
       var wrap = document.getElementById('mapaWrap');
